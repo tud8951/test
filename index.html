@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>图片居中展示</title>
-<style>
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜数字游戏</title>
 </head>
+
 <body>
-    <h1>图片居中展示</h1>
-    <p>这是一个居中展示图片的示例。</p>
-    <img src="https://bigjackson.us.kg/test/png/test.png" alt="示例图片">
+  <h1>猜数字游戏</h1>
+  <p>请输入一个 1 到 100 之间的数字。</p>
+  <input type="number" id="guessInput">
+  <button onclick="checkGuess()">提交猜测</button>
+  <p id="result"></p>
+  <script>
+    // 生成一个 1 到 100 之间的随机数
+    const targetNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guessInput').value);
+      attempts++;
+
+      if (isNaN(guess)) {
+        document.getElementById('result').textContent = '请输入一个有效的数字。';
+      } else if (guess < targetNumber) {
+        document.getElementById('result').textContent = '猜小了！再试试。';
+      } else if (guess > targetNumber) {
+        document.getElementById('result').textContent = '猜大了！再试试。';
+      } else {
+        document.getElementById('result').textContent = `恭喜你猜对了！目标数字是 ${targetNumber}，你用了 ${attempts} 次尝试。`;
+      }
+    }
+  </script>
+		 <style>
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+  		</style>
+  	<footer id="v18"> 
+   			<p id="v19">COPYRIGHT © 2020 - 2024 
+
+BIGJACKSON.ALL RIGHTS RESERVED.
+BigJackson 版权所有</p> 
+	</footer>
 </body>
+
 </html>
